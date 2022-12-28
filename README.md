@@ -1,6 +1,6 @@
-# Forest-Fire-Prediction-Website
-A website that predicts the probability of a forest fire taking place based on oxygen,temperature and humidity content
-Instructions for Pycharm :
-1) In project , add the forest html file in the templates folder
-2) In the static folder add the css and js file for css js elements to work on webpage.Get it from here : https://materializecss.com/getting-started.html
-3) Complete explanation and tutorial on my youtube channel :https://www.youtube.com/watch?v=Pc8WdnIdXZg
+#Intrusion Detection Website
+This website is used to detect Intrusions while data transfer based on bytres of data on sender side, receiver side and time taken for the data transfer.
+The website is built using Flask, HTML CSS, MongoDB as database and python (machine learning models).
+This website is used to predict type of attack using data transfer.
+
+
