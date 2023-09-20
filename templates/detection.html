@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intrusion Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            margin-top: 20px;
+
+        }
+
+        p {
+            align-content: center;
+            margin: 20px;
+            color: #080808;
+        }
+
+        .prediction {
+            text-align: left;
+            background-color: #dff0d8;
+            border: 1px solid #3c763d;
+            color: red;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .prediction h2 {
+            color: #3c763d; /* Change the color of the attack name (h2) to red */
+        }
+
+        .prediction p {
+            color: green; /* Keep the color of the attack description (p) as green */
+        }
+    </style>
+</head>
+<body>
+    <h1> Intrusion Detection </h1>
+    
+    <form method="POST" action="{{ url_for('predict') }}">
+        <label for="feature1">Time Duration:</label>
+        <input type="text" name="feature1" required><br><br>
+        
+        <label for="feature2">Source side No. of Bytes:</label>
+        <input type="text" name="feature2" required><br><br>
+        
+        <label for="feature3">Destination side No. of Bytes:</label>
+        <input type="text" name="feature3" required><br><br>
+        
+        <label for="feature4">Logged In?</label>
+        <input type="text" name="feature4" required><br><br>
+        
+        <label for="feature5">Count of Routers:</label>
+        <input type="text" name="feature5" required><br><br>
+        
+        <input type="submit" value="Predict">
+    </form>
+    
+    {% if prediction_text %}
+    <div class="prediction">
+        <h2>Prediction: The attack is <span style="color: red;">{{ prediction_text[0] }}</span></h2>
+        <p><b>Attack Description: <span style="color: rgb(24, 24, 24);">{{ attack_text }}</span></b></p>
+    </div>
+    {% endif %}
+</body>
+</html>
